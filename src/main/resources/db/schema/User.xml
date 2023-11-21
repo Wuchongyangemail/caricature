@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="user1.0" author="w">
+        <createTable tableName="user" remarks="userInformation">
+            <column autoIncrement="true" name="id" type="BIGINT" startWith="10000">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="userName" type="VARCHAR(64)" remarks="用户名"/>
+            <column name="password" type="VARCHAR(64)" remarks="用户密码"/>
+            <column name="createTime" type="DATETIME" remarks="创建时间"/>
+<!--            0:男、1:女-->
+            <column name="sex" type="INTEGER" remarks="性别"/>
+            <!--            1:用户、2:管理员-->
+            <column name="character" type="BIGINT" remarks="角色"/>
+            <column name="email" type="VARCHAR(32)" remarks="邮箱"/>
+            <column name="tel" type="VARCHAR(16)" remarks="手机号"/>
+        </createTable>
+    </changeSet>
+
+<!--    <changeSet id="rank1.1" author="吴重阳">-->
+<!--        <addColumn tableName="rank">-->
+<!--            <column name="batch" type="VARCHAR(50)" remarks="一批/二批"/>-->
+<!--            <column name="department" type="VARCHAR(50)" remarks="分科"/>-->
+<!--        </addColumn>-->
+<!--    </changeSet>-->
+</databaseChangeLog>

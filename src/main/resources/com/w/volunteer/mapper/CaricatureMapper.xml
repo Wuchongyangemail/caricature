@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.w.volunteer.mapper.CaricatureMapper">
+
+    <select id="getPageList" parameterType="com.w.volunteer.pojo.param.CaricatureParam" resultType="com.w.volunteer.pojo.param.CaricatureParam">
+        SELECT id, `code`, `name` name,`introduction`,`homePage` url,DATE_FORMAT(`createTime`, '%Y-%m-%d') createTime,`createUser`, `show` AS "show" from caricature
+        <include refid="where"/>
+        LIMIT #{count}, #{limit}
+    </select>
+
+    <select id="getPageListCount" parameterType="com.w.volunteer.pojo.param.CaricatureParam" resultType="java.lang.Integer">
+        SELECT count(DISTINCT id) from caricature
+        <include refid="where"/>
+    </select>
+
+    <sql id="where">
+        <where>
+            <if test="inputValue != null and inputValue != ''">
+                name LIKE CONCAT('%', #{inputValue}, '%')
+            </if>
+        </where>
+    </sql>
+
+    <update id="changeShow" parameterType="com.w.volunteer.pojo.param.CaricatureParam">
+        UPDATE caricature set `show` = #{show} where id = #{id}
+    </update>
+
+    <select id="getDetailPageList" parameterType="com.w.volunteer.pojo.param.CommentParam" resultType="com.w.volunteer.pojo.param.CommentParam">
+            SELECT `code`, `name`, `rank`, `url`, `createTime`, `createUser` FROM `comment`
+            WHERE car_code = #{carCode}
+            ORDER BY `rank`
+            LIMIT #{count}, #{limit}
+    </select>
+
+    <select id="getDetailPageCount" parameterType="com.w.volunteer.pojo.param.CommentParam" resultType="java.lang.Integer">
+        SELECT COUNT(DISTINCT id) FROM `comment`
+        WHERE car_code = #{carCode}
+    </select>
+
+    <select id="getPicDetailPageList" parameterType="com.w.volunteer.pojo.param.CommentParam" resultType="java.lang.String">
+        SELECT url FROM contentPicture
+        WHERE `comment_code` = #{carCommentCode} ORDER BY `rank`
+    </select>
+</mapper>
