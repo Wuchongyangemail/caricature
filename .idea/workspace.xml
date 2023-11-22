@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="90acf24d-dac3-4030-a089-551195258a8a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+    <list default="true" id="90acf24d-dac3-4030-a089-551195258a8a" name="Changes" comment="1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/w/volunteer/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/w/volunteer/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/w/volunteer/dataManage/DataManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/w/volunteer/dataManage/DataManage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/w/volunteer/filter/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/w/volunteer/filter/JwtFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/component/all/Head.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/component/all/Head.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/ChapterPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/ChapterPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/register.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,11 +114,36 @@
       <option name="presentableId" value="Default" />
       <updated>1700635420354</updated>
       <workItem from="1700635421379" duration="1461000" />
-      <workItem from="1700637190953" duration="509000" />
+      <workItem from="1700637190953" duration="1438000" />
+      <workItem from="1700638873846" duration="2804000" />
     </task>
+    <task id="LOCAL-00001" summary="1">
+      <option name="closed" value="true" />
+      <created>1700637742843</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1700637742843</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog>
+          <selected-grouping-rules>
+            <grouping-rule id="XBreakpointGroupingByPackageRule" />
+          </selected-grouping-rules>
+        </breakpoints-dialog>
+      </breakpoints-dialog>
+    </breakpoint-manager>
   </component>
 </project>

@@ -88,6 +88,7 @@ public class Controller {
     public Result login(@RequestBody UserParam userParam) {
         Result result = new Result();
         try {
+            processUser(userParam);
             User user = userService.selectUser(userParam);
             if (!ObjectUtils.isEmpty(user)) {
                 user.setPassword(AESUtil.decrypt(user.getPassword()));

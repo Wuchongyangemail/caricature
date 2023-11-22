@@ -5,7 +5,7 @@
         <div class="head"/>
         <div class="loginTop">
           <div class="userCode">
-            <el-input type="name" class="inputStyle" placeholder="账号" v-model="userCode" maxlength="10"/>
+            <el-input type="name" class="inputStyle" placeholder="账号" v-model="userName" maxlength="10"/>
           </div>
         </div>
         <div class="loginButton">
@@ -58,7 +58,6 @@ export default {
   data() {
     return {
       searchParam: {
-        userCode: '',
         password: '',
         userName: '',
         email: '',
@@ -66,7 +65,6 @@ export default {
         sex: '',
         code: ''
       },
-      userCode: '',
       password: '',
       nameValidateForm: {
         name: ''
@@ -181,11 +179,6 @@ export default {
     },
     rankNoneDisplay() {
       this.tempRank = 'name displayNone';
-      console.log(this.getMyScore());
-      console.log(this.getMyRanking());
-      console.log(this.getMyName());
-      console.log(this.getMyDepartment());
-      console.log(this.getAreaSource());
       this.$router.push({
         path: '/colleges'
       });
@@ -240,7 +233,7 @@ export default {
       // })
     },
     login() {
-      if (this.userCode == '' || this.userCode == null) {
+      if (this.userName == '' || this.userName == null) {
         this.$message({
           showClose: true,
           message: '账号不能为空',
@@ -288,8 +281,10 @@ export default {
       //     });
       //     return;
       // }
-      this.searchParam.userCode = this.userCode;
+      this.searchParam.userName = this.userName;
       this.searchParam.password = this.password;
+      this.searchParam.sex = this.sex;
+      this.searchParam.tel = this.tel;
       this.req.post("/api/controller/register", this.searchParam).then(res => {
         if (res.code == 200) {
           this.$message({

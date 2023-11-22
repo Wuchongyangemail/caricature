@@ -207,19 +207,17 @@ export default {
         path: '/worksManagement'
       });
     },
-    searchMyMessage() {
-      this.$alert('请登录！', '警告！', {
-        confirmButtonText: '我这就去...',
-        callback: action => {
-          window.location.href = 'login';
-        }
-      });
+    searchMyMessage: function () {
+      const tempToken = window.sessionStorage.getItem('TOKEN');
+      if (tempToken == null || tempToken == '') {
+        this.$alert('请登录！', '警告！', {
+          confirmButtonText: '我这就去...',
+          callback: action => {
+            window.location.href = 'login';
+          }
+        });
+      }
       this.drawer = true;
-      this.handMyName = this.getMyName();
-      this.score = this.getMyScore();
-      this.ranking = this.getMyRanking();
-      this.area = this.getAreaSource();
-      this.department = this.getMyDepartment();
     }
   }
 }

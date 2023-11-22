@@ -17,7 +17,7 @@ import java.util.Set;
 @Component
 public class JwtFilter implements Filter {
 
-    private static Set<String> notFilterRouter = new HashSet<>(Arrays.asList(new String[]{"/controller/all_area", "/controller/login"}));
+    private static Set<String> notFilterRouter = new HashSet<>(Arrays.asList(new String[]{"/controller/all_area", "/controller/login", "/controller/register"}));
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -25,6 +25,7 @@ public class JwtFilter implements Filter {
         String token = request.getHeader("Authorization");// 从请求头中获取JWT，你也可以从其他位置获取，例如请求参数或Cookie中获取
         String requestURI = request.getRequestURI();
         if (shouldIntercept(requestURI, request)) {
+            filterChain.doFilter(servletRequest, servletResponse);
             return;
         }
         Optional<Jws<Claims>> claims = Optional.ofNullable(Jwts.parser().setSigningKey("caricature").parseClaimsJws(token)); // 使用你的密钥进行解析和验证签名，这里使用硬编码的密钥，你也可以将其存储在配置文件中或使用更安全的方式存储密钥

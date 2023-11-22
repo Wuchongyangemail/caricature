@@ -67,7 +67,7 @@ export default {
       this.mainFileList.push(tempMain);
     }
     this.carCommentName = window.sessionStorage.getItem('CARCOMMENTNAME');
-    if (this.carCommentName == null || this.carCommentCode == '') {
+    if (this.carCommentName == null || this.carCommentName == '') {
       this.carCommentName = '';
     }
     this.carCommentCode = window.sessionStorage.getItem('CARCOMMENTCODE');

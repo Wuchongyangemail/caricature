@@ -20,7 +20,8 @@ public class DataManage {
 
     public static void main(String[] args) {
         try {
-            String url = "https://www.redbz.com/";
+            String url = "https://www.redbz.com/rank";
+            
             StringBuffer response = connect(url);
             String[] split = response.toString().split("<a href=\"/comic");
             List<Map<Object, Object>> pd = new ArrayList<>();
