@@ -1,0 +1,35 @@
+server:
+  port: 9999
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/caricature?useUnicode=true&characterEncoding=utf-8&useSSL=false&SSLMode=Required
+    username: root
+    password: wuchongyang
+
+  liquibase:
+    enabled: true
+    change-log: "classpath:/db/changelog/db.changelog-master.xml"
+    contexts: dev
+
+  mail:
+    host: smtp.qq.com # 配置 smtp 服务器地址
+    port: 587 # smtp 服务器的端口
+    username: 1208253233@qq.com # 配置邮箱用户名(你的邮箱地址)
+    password: lpuoxqaasiqihjei # 配置申请到的授权码(刚让复制的授权码)
+    default-encoding: UTF-8 # 配置邮件编码
+    properties:
+      mail:
+        smtp:
+          socketFactoryClass: javax.net.ssl.SSLSocketFactory # 配饰 SSL 加密工厂
+        debug: true
+    from: 1208253233@qq.com # 发送方邮件，陪在yml中可方便更改
+
+  mybatis:
+    mapper-locations: classpath:com/w/volunteer/mapper/*.xml
+
+logging:
+  level:
+    com.w.volunteer.mapper: debug
+

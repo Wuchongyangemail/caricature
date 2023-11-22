@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.w.volunteer.mapper.RankMapper">
+
+    <insert id="create" parameterType="com.w.volunteer.pojo.common.Rank">
+        insert into rank(
+        volunteerCode,
+        year,
+        areaId,
+        rank,
+        batch,
+        department,
+        schoolName
+        ) values (
+        #{volunteerCode},
+        #{year},
+        #{areaId},
+        #{rank},
+        #{batch},
+        #{department},
+        #{schoolName}
+        )
+    </insert>
+
+    <insert id="batchCreate" parameterType="list">
+        insert into rank(
+            volunteerCode,
+            year,
+            areaId,
+            rank,
+            batch,
+            department,
+            schoolName
+        ) values
+        <foreach collection="list" item="item" separator=",">
+            (
+                #{item.volunteerCode},
+                #{item.year},
+                #{item.areaId},
+                #{item.rank},
+                #{item.batch},
+                #{item.department},
+                #{item.schoolName}
+            )
+        </foreach>
+    </insert>
+</mapper>

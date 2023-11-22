@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.w.volunteer.mapper.ControlLineMapper">
+
+    <insert id="create" parameterType="com.w.volunteer.pojo.common.ControlLine">
+        insert into controlLine(
+        areaId,
+        score,
+        rank,
+        department,
+        batch,
+        year
+        )values (
+        #{areaId},
+        #{score},
+        #{rank},
+        #{department},
+        #{batch},
+        #{year}
+        )
+    </insert>
+
+    <insert id="batchCreate" parameterType="list">
+        insert into controlLine(
+        areaId,
+        score,
+        rank,
+        department,
+        batch,
+        year
+        )values
+        <foreach collection="list" item="item" separator=",">
+            (
+                #{item.areaId},
+                #{item.score},
+                #{item.rank},
+                #{item.department},
+                #{item.batch},
+                #{item.year}
+            )
+        </foreach>
+    </insert>
+
+    <select id="getNewLine" resultType="com.w.volunteer.pojo.common.ControlLine">
+        select * from controlLine
+        where areaId = #{area}
+        and year = #{year}
+        and batch = #{batch}
+        and department = #{department}
+    </select>
+</mapper>
