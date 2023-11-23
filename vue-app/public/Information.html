@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width" http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>Information</title>
+<link href="/images/bjg.ico" rel="icon" type="image/x-ico">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/fort.css">
+<style>
+.h{
+	width:100%;
+	height:100px;
+	background:#FFF;
+	box-shadow:1px 1px 10px #CCC;
+}
+.hleft{
+	width:25%;
+	height:100px;
+	float:left;
+}
+.hleft a{
+	width:100%;
+	height:100px;
+	float:left;
+	background:url(images/100-300.png) no-repeat;
+}
+.hright{
+	width:70%;
+	height:100px;
+	float:right;
+}
+.hrightup{
+	width:90%;
+	height:39px;
+	float:left;
+	padding-top:10px;
+}
+.hrightcenter{
+	width:90%;
+	height:1px;
+	float:left;
+	background:#999;
+}
+.hrightdown{
+	width:90%;
+	height:60px;
+	float:left;
+}
+.all{
+	height:750px;
+	width:100%;
+	background:url(images/background.jpg);
+}
+.top-banner {
+  background-color: #333;
+}
+.nav {
+	margin-bottom: 30px;
+}
+.nav li.current a{
+	background-color:FFF;
+	color: #FFF;
+	padding: 10px;
+}
+.nav a {
+	margin: 0px;
+	color: #333;
+	text-decoration: none;
+}
+.bast{
+	width:60%;
+	height:500px;
+	margin:50px auto;
+	box-shadow:0px 0px 10px #09C;
+}
+.bastup{
+	width:150px;
+	height:150px;
+	margin:0px auto;
+	box-shadow:0px 0px 15px #09C;
+	border-radius:250px 250px 250px 250px;
+	background:url(images/150px%20log.png);
+}
+.land{
+	height:50px;
+	width:100%;
+	margin:0px auto;
+	padding-top:25px;
+}
+</style>
+<script src="js/fort.js"></script>
+</head>
+<body style="overflow:-Scroll;overflow-x:hidden">
+<div class="all">
+<div class="h">
+<div class="hleft">	<a href="Main.html"></a></div>
+<div class="hright">
+<div class="hrightup">
+<a style="font-size:12px;color:#F93;">要 注 意 自 己 分 数 的 准 确 性 哦！！！</a>
+</div>
+<div class="hrightcenter"></div>
+<div class="hrightdown" style="color:#F93; text-align:right; font-size:24px; padding-top:10px;">
+<span id="time"></span>
+<script>
+	function show(){
+		var date = new Date();
+		var year = date.getFullYear();
+		var month = date.getMonth()+1;
+		month=month<10?"0"+month:month;
+		var day = date.getDate();
+		day=day<10?"0"+day:day;
+		var week = date.getDay();
+		week="日一二三四五六".charAt(week);
+		week="星期"+week;
+		var hour = date.getHours();
+		hour= hour<10?"0"+ hour: hour;
+		var minute = date.getMinutes();
+		minute=minute<10?"0"+minute:minute;
+		var second = date.getSeconds();
+		second=second<10?"0"+second:second;
+		var result = year+"."+month+"."+day+"  "+week+"  "+hour+":"+minute+":"+second;
+		document.getElementById("time").innerHTML=result;
+	}
+	show();
+	setInterval("show()",100);
+</script>
+</div>
+</div>
+</div>
+<div class="bast">
+<div class="bastup"></div>
+<div class="form-wrapper" >
+  <div class="top"><div class="colors"></div></div>
+	<div class="nav">
+		<ul>
+			<li class="current"></li>
+		</ul>
+	</div>
+	<form name="form" action="index/index.php" enctype="multipart/form-data" method="post">
+	    <div class="form-item" style="margin-bottom:1%; font-size:18px; ">
+				<input type="radio" name="or" value="文科"/>文科&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="or" value="理科" checked="true"/>理科
+		</div>
+		<div class="form">
+			<div class="form-item">
+				<input type="text" name="name" required=''>
+                <label alt='您的名字' placeholder='欢迎'></label>
+			</div>
+			<div class="form-item">
+				<input type="text" name="grade" required=''>
+                <label alt='您的分数' placeholder='418-750'></label>
+			</div>
+			<div class="form-item" style=" margin-bottom:1%;font-size:18px; ">
+				<input type="radio" name="school" value="yiben"/>一本院校&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="school" value="erban" checked="true"/>二本院校
+			</div>
+			<div class="button-panel">
+     <input type="submit" class="button" title="确认" value="确认">
+   </div>
+	</div>
+</form>
+</div>
+</div>
+<div class="land">
+<td width="100" height="27" align="center"> &copy; 2020 北极光 版权所有ICP证：<a href="http://www.beian.miit.gov.cn"> <strong>豫ICP备20020118号-1</strong></a></td>
+</div>
+</div>
+</body>
+</html>

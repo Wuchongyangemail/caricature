@@ -1,0 +1,13 @@
+const message = {
+    selectBatch: state => state.message.selectBatch,
+    myScore: state => state.message.myScore,
+    myRanking: state => state.message.myRanking,
+    areaSource: state => state.message.areaSource,
+    myName: state => state.message.myName,
+    myDepartment: state => state.message.myDepartment,
+    carId: state => state.message.carId,
+    carName: state => state.message.carName,
+    carUrl: state => state.message.carUrl,
+    carMo: state => state.message.carMo
+};
+export default message;
