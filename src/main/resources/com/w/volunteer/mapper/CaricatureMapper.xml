@@ -5,7 +5,7 @@
 <mapper namespace="com.w.volunteer.mapper.CaricatureMapper">
 
     <select id="getPageList" parameterType="com.w.volunteer.pojo.param.CaricatureParam" resultType="com.w.volunteer.pojo.param.CaricatureParam">
-        SELECT id, `code`, `name` name,`introduction`,`homePage` url,DATE_FORMAT(`createTime`, '%Y-%m-%d') createTime,`createUser`, `show` AS "show" from caricature
+        SELECT id, `code`, `name` name,`introduction`,`homePage` url,DATE_FORMAT(`updateTime`, '%Y-%m-%d') createTime,`createUser`, `show` AS "show", `tag` tag, `end` end from caricature
         <include refid="where"/>
         LIMIT #{count}, #{limit}
     </select>

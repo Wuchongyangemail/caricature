@@ -28,4 +28,6 @@ public class User implements Serializable {
     private Date createTime;
 
     private String token;
+
+    private Long id;
 }

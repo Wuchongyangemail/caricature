@@ -20,4 +20,6 @@ public class UserParam {
     private String tel;
 
     private Integer character;
+
+    private Long id;
 }

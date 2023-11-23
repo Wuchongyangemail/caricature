@@ -201,7 +201,7 @@ export default {
           });
           this.setCar('TOKEN', res.token);
           this.$router.push({
-            path: '/dataManage'
+            path: '/worksManagement'
           });
           return;
         }

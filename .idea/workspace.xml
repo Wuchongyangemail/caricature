@@ -6,12 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="90acf24d-dac3-4030-a089-551195258a8a" name="Changes" comment="1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/w/volunteer/controller/CaricatureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/w/volunteer/controller/CaricatureController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/w/volunteer/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/w/volunteer/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/w/volunteer/dataManage/DataManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/w/volunteer/dataManage/DataManage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/w/volunteer/filter/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/w/volunteer/filter/JwtFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/component/all/Head.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/component/all/Head.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/ChapterPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/ChapterPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/w/volunteer/dataManage/DataManageDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/w/volunteer/dataManage/DataManageDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/w/volunteer/pojo/common/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/w/volunteer/pojo/common/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/w/volunteer/pojo/param/CaricatureParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/w/volunteer/pojo/param/CaricatureParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/w/volunteer/pojo/param/UserParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/w/volunteer/pojo/param/UserParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/w/volunteer/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/w/volunteer/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/w/volunteer/serviceImpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/w/volunteer/serviceImpl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/w/volunteer/mapper/CaricatureMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/w/volunteer/mapper/CaricatureMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/w/volunteer/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/w/volunteer/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/schema/Caricature.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/schema/Caricature.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/schema/User.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/schema/User.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/AuthorCenter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/AuthorCenter.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/WorksManagement.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/WorksManagement.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/login.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +68,32 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.DemoApplication">
+    <configuration name="DataManage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.w.volunteer.dataManage.DataManage" />
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.w.volunteer.dataManage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DataManageDetail" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.w.volunteer.dataManage.DataManageDetail" />
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.w.volunteer.dataManage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="caricature2" />
       <method v="2">
@@ -88,6 +124,16 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="serve (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/vue-app/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="serve" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/vue/package.json" />
       <command value="run" />
@@ -100,7 +146,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.serve (1)" />
         <item itemvalue="npm.serve" />
+        <item itemvalue="Application.DataManageDetail" />
+        <item itemvalue="Application.DataManage" />
         <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
@@ -115,7 +164,10 @@
       <updated>1700635420354</updated>
       <workItem from="1700635421379" duration="1461000" />
       <workItem from="1700637190953" duration="1438000" />
-      <workItem from="1700638873846" duration="2804000" />
+      <workItem from="1700638873846" duration="3039000" />
+      <workItem from="1700663317255" duration="12000" />
+      <workItem from="1700664064935" duration="27000" />
+      <workItem from="1700722922894" duration="10130000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -137,6 +189,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/w/volunteer/dataManage/DataManage.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/w/volunteer/dataManage/DataManageDetail.java</url>
+          <line>160</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog>
           <selected-grouping-rules>

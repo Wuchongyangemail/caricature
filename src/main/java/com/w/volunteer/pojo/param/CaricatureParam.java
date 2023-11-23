@@ -2,6 +2,9 @@ package com.w.volunteer.pojo.param;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 @Data
 public class CaricatureParam extends BaseParam {
     private String name;
@@ -17,4 +20,12 @@ public class CaricatureParam extends BaseParam {
     private String code;
 
     private String introduction;
+
+    private String tag;
+
+    private Integer end;
+
+    private List<String> tags;
+
+    private BigDecimal pageView;
 }

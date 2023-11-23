@@ -31,4 +31,17 @@
             <column name="url" type="VARCHAR(64)" remarks="主页"/>
         </addColumn>
     </changeSet>
+
+    <changeSet id="caricature1.3" author="w">
+        <addColumn tableName="caricature">
+            <column name="tag" type="VARCHAR(64)" remarks="标签"/>
+        </addColumn>
+    </changeSet>
+
+<!--    0:已完结、1:连更中-->
+    <changeSet id="caricature1.4" author="w">
+        <addColumn tableName="caricature">
+            <column name="end" type="Integer" remarks="更新状态"/>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>

@@ -11,4 +11,6 @@ public interface UserService {
     User selectUser(UserParam userParam) throws Exception;
 
     Integer edit(UserParam userParam) throws Exception;
+
+    User searchAuthData(UserParam userParam) throws Exception;
 }

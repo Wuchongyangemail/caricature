@@ -24,6 +24,7 @@ public class DataManageDetail {
             List<Map<Object, Object>> pageData = parseDetail(car);
             System.out.println(1);
             processData(pageData);
+            processCar(car);
             System.out.println("完成");
         } catch (Exception e) {
             e.printStackTrace();
@@ -112,6 +113,41 @@ public class DataManageDetail {
         }
     }
 
+    /**
+     * 同步数据
+     *
+     * @return
+     * @throws Exception
+     */
+    private static void processCar(List<CaricatureParam> list) {
+        if (CollectionUtil.isEmpty(list)) {
+            System.out.println("数据为空！");
+        }
+        SnowflakeIdWorker snowflakeIdWorker = new SnowflakeIdWorker(8, 8);
+
+        try {
+            // 加载并注册JDBC驱动
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // 建立数据库连接
+            Connection connection = DriverManager.getConnection(url, username, password);
+
+            // 创建Statement对象
+            Statement statement = connection.createStatement();
+            // 执行SQL语句
+            String sql = "INSERT INTO `caricature` (`introduction`) VALUES (?) WHERE `code`=?;";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            for (CaricatureParam caricatureParam : list) {
+                preparedStatement.setString(1, caricatureParam.getIntroduction());
+                preparedStatement.setString(2, caricatureParam.getCode());
+                preparedStatement.addBatch();
+            }
+            preparedStatement.executeBatch();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private static List<Map<Object, Object>> parseDetail(List<CaricatureParam> list) throws Exception {
         List<Map<Object, Object>> pdList = new ArrayList<>();
         try {
@@ -121,6 +157,7 @@ public class DataManageDetail {
                 StringBuffer url = connect("https://www.redbz.com/" + param.getUrl());
                 String s = url.toString();
                 String s1 = s.substring(s.indexOf("\"data\":") + 7, s.indexOf("}]);"));
+                param.setIntroduction(s.substring(s.indexOf("介绍:")+3, s.indexOf("class=\"openBtn\"></p><center") - 11));
                 JSONArray parse = (JSONArray) JSONArray.parse(s1);
                 List<Map<Object, Object>> maps = new ArrayList<>();
                 for (Object o : parse) {

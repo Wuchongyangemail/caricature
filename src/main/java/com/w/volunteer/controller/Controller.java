@@ -16,12 +16,14 @@ import com.w.volunteer.pojo.result.VerficationResult;
 import com.w.volunteer.service.*;
 import com.w.volunteer.util.AESUtil;
 import com.w.volunteer.util.JwtUtils;
+import com.w.volunteer.util.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletRequest;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -80,6 +82,30 @@ public class Controller {
             e.printStackTrace();
             result.setMsg("更新失败！");
             result.setCode("500");
+        }
+        return result;
+    }
+
+    @PostMapping("/searchAuthData")
+    public Result searchAuthData(ServletRequest request) {
+        Result result = new Result();
+        try {
+            Object username = request.getAttribute("username");
+            String[] split = username.toString().split("\\$¥");
+            UserParam userParam = new UserParam();
+            userParam.setUserName(split[0]);
+            userParam.setPassword(AESUtil.encrypt(split[1]));
+            User user = userService.searchAuthData(userParam);
+            if (ObjectUtils.isEmpty(user)) {
+                ResultUtil.addCodeAndMsg(result, "500", "查询失败！");
+                return result;
+            }
+            user.setPassword(AESUtil.decrypt(user.getPassword()));
+            result.setResults(user);
+            ResultUtil.addCodeAndMsg(result, "200", "查询成功！");
+        } catch(Exception e) {
+            e.printStackTrace();
+            ResultUtil.addCodeAndMsg(result, "500", "查询失败！");
         }
         return result;
     }

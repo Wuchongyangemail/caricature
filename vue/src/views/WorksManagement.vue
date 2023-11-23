@@ -37,26 +37,31 @@
             width="150">
         </el-table-column>
         <el-table-column
+            prop="createUser"
+            label="作者"
+            width="150">
+        </el-table-column>
+        <el-table-column
             label="标签"
             width="120">
-          <el-tag type="danger">暂无</el-tag>
+          <template v-slot="{ row }">
+            <el-tag type="warning" v-for="(item, index) in row.tags" :key="index" :is-group="true" :is-collapse="true">
+              {{ item }}
+            </el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column
+            label="浏览量"
+            prop="pageView"
+            width="120">
         </el-table-column>
         <el-table-column
             label="是否展示"
             width="120">
           <template v-slot="{ row }">
             <el-tag v-if="row.show == 1" type="success">是</el-tag>
-            <el-tag v-if="row.show == 0" type="danger">否</el-tag>
+            <el-tag v-if="row.show == 0 || row.show == null || row.show ==''" type="danger">否</el-tag>
           </template>
-        </el-table-column>
-        <el-table-column
-            label="浏览量"
-            width="120">
-        </el-table-column>
-        <el-table-column
-            prop="city"
-            label="最新章节"
-            width="120">
         </el-table-column>
         <el-table-column
             prop="createTime"
@@ -70,7 +75,9 @@
           <template v-slot="{ row }">
             <el-button class="buttonStyle" @click="editPage(row)">编辑</el-button>
             <el-button class="buttonStyle" v-if="row.show == 1" @click="reShow(row)">下架</el-button>
-            <el-button class="buttonStyle" v-if="row.show == 0" @click="reShow(row)">上架</el-button>
+            <el-button class="buttonStyle" v-if="row.show == 0 || row.show == null || row.show ==''"
+                       @click="reShow(row)">上架
+            </el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -230,8 +237,7 @@ export default {
 .selectButton {
   width: 70px;
   float: right;
-//border: 1px solid red; padding-top: 8px; padding-left: 20px;
-  margin-right: 50px;
+//border: 1px solid red; padding-top: 8px; padding-left: 20px; margin-right: 50px;
 }
 
 .like {
@@ -243,9 +249,7 @@ export default {
 .list {
   width: 70%;
   height: 480px;
-//border: 1px solid blueviolet; background-color: rgba(255, 255, 255); border-radius: 50px;
-  margin: auto;
-  margin-top: 15px;
+//border: 1px solid blueviolet; background-color: rgba(255, 255, 255); border-radius: 50px; margin: auto; margin-top: 15px;
   padding-top: 1px;
   z-index: 0;
 }

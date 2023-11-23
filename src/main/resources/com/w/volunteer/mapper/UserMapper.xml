@@ -21,7 +21,8 @@
         `createTime` createTime,
         `sex` sex,
         `email` email,
-        `tel`tel  FROM user
+        `tel`tel,
+        `id` id FROM user
         <where>
             <if test="userName != null and userName != ''">
                 userName = #{userName}

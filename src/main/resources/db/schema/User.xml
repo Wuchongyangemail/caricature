@@ -20,10 +20,9 @@
         </createTable>
     </changeSet>
 
-<!--    <changeSet id="rank1.1" author="吴重阳">-->
-<!--        <addColumn tableName="rank">-->
-<!--            <column name="batch" type="VARCHAR(50)" remarks="一批/二批"/>-->
-<!--            <column name="department" type="VARCHAR(50)" remarks="分科"/>-->
-<!--        </addColumn>-->
-<!--    </changeSet>-->
+    <changeSet id="user1.1" author="吴重阳">
+        <addColumn tableName="user">
+            <column name="updateTime" type="Datetime" remarks="更新时间"/>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>

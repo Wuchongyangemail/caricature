@@ -29,4 +29,9 @@ public class UserServiceImpl implements UserService {
     public Integer edit(UserParam userParam) throws Exception {
         return userMapper.editUser(userParam);
     }
+
+    @Override
+    public User searchAuthData(UserParam userParam) throws Exception {
+        return userMapper.selectUser(userParam);
+    }
 }

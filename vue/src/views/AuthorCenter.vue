@@ -40,6 +40,9 @@ import request from "@/utils/request";
 export default {
   name: "AuthorCenter",
   mixins: [shopMixin],
+  mounted() {
+    this.searchAuthData();
+  },
   data() {
     return {
       searchParam: {
@@ -97,7 +100,33 @@ export default {
       this.keepButton = 'danger';
       this.editButton = 'info';
     },
+    searchAuthData(){
+      this.req.post("/api/controller/searchAuthData", this.searchParam).then(res => {
+        if (res.code == '200') {
+          var temp = res.results;
+          this.id = temp.id;
+          this.email = temp.email;
+          this.password = temp.password;
+          this.userCode = temp.userName;
+          this.tel = temp.tel;
+          this.sex = temp.sex.toString();
+        } else {
+          this.$message({
+            showClose: true,
+            message: res.msg,
+            type: 'error'
+          });
+        }
+      })
+    },
     editMyMessage() {
+      this.searchParam.userCode = this.userCode;
+      this.searchParam.password = this.password;
+      this.searchParam.email = this.email;
+      this.searchParam.tel = this.tel;
+      this.searchParam.sex = this.sex;
+      this.searchParam.character = this.character;
+      this.searchParam.id = this.id;
       if (this.userCode == '' || this.userCode == null) {
         this.$message({
           showClose: true,
@@ -146,13 +175,6 @@ export default {
       //     });
       //     return;
       // }
-      this.searchParam.userCode = this.userCode;
-      this.searchParam.password = this.password;
-      this.searchParam.email = this.email;
-      this.searchParam.tel = this.tel;
-      this.searchParam.sex = this.sex;
-      this.searchParam.character = this.character;
-      this.searchParam.id = this.id;
       this.req.post("/api/controller/editUser", this.searchParam).then(res => {
         if (res.code == 200) {
           this.$message({
@@ -160,8 +182,9 @@ export default {
             message: res.msg,
             type: 'success'
           });
+          window.sessionStorage.removeItem("TOKEN");
           this.$router.push({
-            path: '/AuthorCenter'
+            path: '/login'
           });
           return;
         }

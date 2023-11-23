@@ -1,5 +1,6 @@
 package com.w.volunteer.controller;
 
+import cn.hutool.core.collection.CollectionUtil;
 import com.w.volunteer.pojo.param.CaricatureParam;
 import com.w.volunteer.pojo.param.CommentParam;
 import com.w.volunteer.pojo.result.Result;
@@ -12,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -28,6 +32,7 @@ public class CaricatureController {
             processData(caricatureParam);
             //查询分页数据
             List<CaricatureParam> pageList = caricatureService.getPageList(caricatureParam);
+            processList(pageList);
             Integer pageListCount = caricatureService.getPageListCount(caricatureParam);
             result.setResults(pageList);
             result.setTotal(pageListCount);
@@ -37,6 +42,16 @@ public class CaricatureController {
             ResultUtil.addCodeAndMsg(result, "500", "查询失败！");
         }
         return result;
+    }
+
+    private void processList(List<CaricatureParam> pageList) {
+        if (CollectionUtil.isEmpty(pageList)) {
+            return;
+        }
+        for (CaricatureParam caricatureParam : pageList) {
+            caricatureParam.setPageView((new BigDecimal(Math.random()*1000000)).setScale(0, BigDecimal.ROUND_DOWN));
+            caricatureParam.setTags(Arrays.asList(caricatureParam.getTag().split(" ")));
+        }
     }
 
     @PostMapping("/isShow")
